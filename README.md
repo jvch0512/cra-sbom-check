@@ -1,6 +1,10 @@
 # cra-sbom-check
 
+[Español](README.es.md)
+
 cra-sbom-check reads CycloneDX JSON SBOMs and reports what is missing for them to be useful under the EU Cyber Resilience Act (which requires manufacturers to document the components of a product) and the NTIA minimum elements: the product itself, a timestamp, who produced the SBOM, and for each component a name, version, supplier, unique identifier (purl or CPE), hash and licence, plus the dependency relationships and a security contact.
+
+![Terminal demo of cra-sbom-check on its sample data](docs/demo.svg)
 
 **Live demo:** https://jvch0512.github.io/cra-sbom-check/ (Synthetic data.)
 
@@ -39,6 +43,7 @@ See [examples](examples) and [docs/sample-output.txt](docs/sample-output.txt).
 - It checks completeness of fields, not truth. A purl or a hash is not verified against a registry.
 - Only CycloneDX JSON is read. SPDX documents are reported as not CycloneDX.
 - Components nested inside other components are included.
+- Dates: the Article 14 reporting obligations have applied since 11 September 2026 and the rest of the Cyber Resilience Act applies from 11 December 2027.
 - This tool helps prepare documentation. It does not decide whether a product meets the Cyber Resilience Act.
 
 ## Where it fits
@@ -52,3 +57,13 @@ make test    # A .NET test program: every rule on good and bad SBOMs, nested com
 ```
 
 MIT.
+
+## Code scanning (SARIF)
+
+`scripts/tsv2sarif.py` converts the `--tsv` output into SARIF 2.1.0, so findings show up in GitHub code scanning:
+
+```sh
+bin/cra-sbom-check examples --tsv | python3 scripts/tsv2sarif.py --tool cra-sbom-check --prefix examples > results.sarif
+```
+
+Upload `results.sarif` with `github/codeql-action/upload-sarif`. Severities map to SARIF levels (critical and high to error, medium to warning, low and info to note) and to a `security-severity` score.
