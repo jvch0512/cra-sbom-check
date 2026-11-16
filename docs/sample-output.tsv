@@ -1,0 +1,19 @@
+# 4 files, 18 findings
+high	CRA001	legacy-app.cdx.json#metadata.component	the product is not identified: metadata.component needs a name and a version
+medium	CRA002	legacy-app.cdx.json#metadata	no timestamp: nobody can tell how fresh this SBOM is
+medium	CRA003	legacy-app.cdx.json#metadata	no author, manufacturer or supplier of the SBOM
+medium	CRA004	legacy-app.cdx.json#components[inner-helper]	inner-helper has no version
+medium	CRA005	legacy-app.cdx.json#components[inner-helper]	inner-helper has no purl or CPE, so it cannot be matched to advisories
+medium	CRA005	legacy-app.cdx.json#components[log4j-core@2.14.1]	log4j-core@2.14.1 has no purl or CPE, so it cannot be matched to advisories
+medium	CRA008	legacy-app.cdx.json#dependencies	no dependency graph: it is unclear which component pulls in which
+medium	CRA010	legacy-app.cdx.json#externalReferences	no external reference of type security-contact for vulnerability reports
+low	CRA011	broken-ref.cdx.json#dependencies[app]	app depends on unknown bom-ref ghost
+low	CRA006	legacy-app.cdx.json#components[commons-io@2.11.0]	commons-io@2.11.0 has no supplier, publisher or author
+low	CRA006	legacy-app.cdx.json#components[inner-helper]	inner-helper has no supplier, publisher or author
+low	CRA006	legacy-app.cdx.json#components[log4j-core@2.14.1]	log4j-core@2.14.1 has no supplier, publisher or author
+low	CRA007	legacy-app.cdx.json#components[commons-io@2.11.0]	commons-io@2.11.0 has no hash
+low	CRA007	legacy-app.cdx.json#components[inner-helper]	inner-helper has no hash
+low	CRA007	legacy-app.cdx.json#components[log4j-core@2.14.1]	log4j-core@2.14.1 has no hash
+low	CRA009	legacy-app.cdx.json#components[inner-helper]	inner-helper has no licence information
+low	CRA009	legacy-app.cdx.json#components[log4j-core@2.14.1]	log4j-core@2.14.1 has no licence information
+info	CRA000	spdx.json	not a CycloneDX JSON document, ignored

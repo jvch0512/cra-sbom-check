@@ -1,0 +1,11 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "metadata": { "component": { "type": "application", "name": "legacy-app" } },
+  "components": [
+    { "type": "library", "name": "log4j-core", "version": "2.14.1" },
+    { "type": "library", "name": "commons-io", "purl": "pkg:maven/commons-io/commons-io@2.11.0", "version": "2.11.0", "licenses": [{ "license": { "id": "Apache-2.0" } }],
+      "components": [{ "type": "library", "name": "inner-helper" }] }
+  ],
+  "dependencies": []
+}

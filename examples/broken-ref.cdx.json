@@ -1,0 +1,11 @@
+{
+  "bomFormat": "CycloneDX", "specVersion": "1.5",
+  "metadata": { "timestamp": "2026-11-01T00:00:00Z", "manufacture": { "name": "Acme" },
+    "component": { "type": "application", "bom-ref": "app", "name": "app", "version": "1.0",
+      "externalReferences": [{ "type": "security-contact", "url": "https://acme.example.test/security" }] } },
+  "components": [
+    { "type": "library", "bom-ref": "a", "name": "a", "version": "1", "purl": "pkg:npm/a@1", "supplier": { "name": "A Inc" },
+      "hashes": [{ "alg": "SHA-256", "content": "cc" }], "licenses": [{ "license": { "id": "MIT" } }] }
+  ],
+  "dependencies": [{ "ref": "app", "dependsOn": ["a", "ghost"] }]
+}
